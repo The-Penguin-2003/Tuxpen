@@ -31,8 +31,8 @@ boot_init:
 
 	sti	; Re-enable interrupts
 
-	mov si, tmp_welcome_msg		; Move temporary welcome message into SI
-	call boot_puts			; Print the string
+	mov si, tux_boot_start_msg		; Move temporary welcome message into SI
+	call boot_puts				; Print the string
 
 	jmp $	; Infinite loop
 
@@ -60,8 +60,8 @@ boot_puts:
 		ret
 
 ;; GLOBAL VARIABLES
-tmp_welcome_msg:
-	db "Welcome to the Tuxpen bootloader!",0
+tux_boot_start_msg:
+	db "[TUX] First-stage bootloader started",0xA,0xD,0
 
 ;; End point of first-stage bootloader
 boot_end:
